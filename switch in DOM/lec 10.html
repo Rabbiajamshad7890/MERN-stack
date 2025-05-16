@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <h1>Fruit Availability Checker</h1>
+    <input type="text" id="fruitInput" placeholder="Enter a fruit name">
+    <button onclick="checkFruit()">Check</button>
+    <p id="result"></p>
+  
+    <script>
+      function checkFruit() {
+        var fruits = document.getElementById("fruitInput").value.toLowerCase();
+        var result = "";
+  
+        switch(fruits) {
+          case "apple":
+          case "mango":
+            result = "Apple is sold out";
+            break;
+          case "orange":
+            result = "Orange is available";
+            break;
+          case "strawberry":
+            result = "Strawberry is available";
+            break;
+          default:
+            result = "Wrong value";
+        }
+  
+        document.getElementById("result").innerText = result;
+      }
+    </script>
+
+
+
+    <script src="./index.js"></script>
+</body>
+</html>
