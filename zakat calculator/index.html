@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakat Calculator</title>
+</head>
+<body>
+
+<h2>Zakat Calculator</h2>
+
+<label>Gold (grams): </label>
+<input type="number" id="gold" placeholder="Enter gold in grams"><br><br>
+
+<label>Gold Rate (per gram): </label>
+<input type="number" id="goldRate" placeholder="Enter gold rate"><br><br>
+
+<label>Silver (grams): </label>
+<input type="number" id="silver" placeholder="Enter silver in grams"><br><br>
+
+<label>Silver Rate (per gram): </label>
+<input type="number" id="silverRate" placeholder="Enter silver rate"><br><br>
+
+<label>Cash (in your currency): </label>
+<input type="number" id="cash" placeholder="Enter total cash"><br><br>
+
+<button onclick="calculateZakat()">Calculate Zakat</button>
+
+<h3 id="result"></h3>
+
+<script>
+    function calculateZakat() {
+        const gold = parseFloat(document.getElementById('gold').value) || 0;
+        const goldRate = parseFloat(document.getElementById('goldRate').value) || 0;
+        const silver = parseFloat(document.getElementById('silver').value) || 0;
+        const silverRate = parseFloat(document.getElementById('silverRate').value) || 0;
+        const cash = parseFloat(document.getElementById('cash').value) || 0;
+
+        // Calculate total value
+        const goldValue = gold * goldRate;
+        const silverValue = silver * silverRate;
+        const totalAssets = goldValue + silverValue + cash;
+
+        // Nisab (minimum threshold)
+        const nisabGold = 87.48 * goldRate; // Nisab for gold
+        const nisabSilver = 612.36 * silverRate; // Nisab for silver
+        const nisab = Math.min(nisabGold, nisabSilver); // Use the lower nisab for caution
+
+        if (totalAssets >= nisab) {
+            const zakat = totalAssets * 0.025; // 2.5% zakat
+            document.getElementById('result').innerText = `Zakat Due: ${zakat.toFixed(2)}`;
+        } else {
+            document.getElementById('result').innerText = `No Zakat due. Your total assets are below Nisab.`;
+        }
+    }
+</script>
+
+</body>
+</html>
