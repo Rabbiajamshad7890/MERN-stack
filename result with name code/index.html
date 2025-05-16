@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="calculate(); return false;" >
+     
+    <h1 id="change">result show here</h1> 
+    
+    <label for="tm">total marks</label>
+    <input type="number" name="tm" id="tm1" placeholder="enter your total marks">
+<br>
+<br>
+    <label for="om">obt marks</label>
+    <input type="number" name="om" id="om1" placeholder="enter your obt marks">
+    <br>
+    <br>
+<button type="submit">calculate</button>
+</form>
+
+<script>
+function calculate(){
+    let name = prompt("enter your name")
+let std_tm_marks =document.querySelector("#tm1").value;
+let std_om_marks =document.querySelector("#om1").value;
+res = std_om_marks / std_tm_marks * 100;
+alert(res)
+document.querySelector("#change").innerHTML=(" Dear " + name + " you have got " + res + " % ")
+
+}
+
+
+</script>
+
+</body>
+</html>

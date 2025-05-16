@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1 id="res1">percentage Cals</h1>
+    <form onsubmit="clicknow()" return false;></form>
+<label for="tm">total marks</label>
+<input type="text" name="tm" id="tm1" placeholder="total marks" required>
+<br>
+<br>
+<label for="obt">obt marks</label>
+<input type="text" name="obt" id="obt1" placeholder="obt marks" required>
+<button type="submit" > Click Now</button>
+
+    </form>
+<script>
+function clicknow(){
+let tm = document.getElementById("tm1").value;
+
+let obt = document.getElementById("obt1").value;
+
+res = (obt / tm )* 100 ;
+alert(res);
+document.getElementById("res1").innerHTML = (" dear " +name + " you have got it ") + res + "%"
+ console.log(res)
+}
+
+
+</script>
+
+
+</body>
+</html>

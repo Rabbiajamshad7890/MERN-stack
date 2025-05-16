@@ -1,0 +1,16 @@
+h1{
+    background-color: antiquewhite;
+    color: aqua;
+    font-size: 72pt;
+    width: 60%;
+text-align:center;
+font-weight: lighter;
+padding-top: 20px;
+padding-bottom: 20px;
+margin-top: 20px;
+margin-bottom: 20px;
+border-radius: 120px;
+box-shadow: 10px 10px 5px ;
+text-decoration: dashed;
+text-decoration: overline;
+}
