@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <h1 id="res1">temprature</h1>
+    <form onsubmit="getweather(); return false;">
+        <h1>weather app</h1>
+        <label for="cityname">City Name  :</label>
+        <input type="text" name="cityname" id="temp1" placeholder="enter a city name">
+        <button type="submit">get weather</button>
+    </form>
+
+    <script>
+    function getweather(){
+     let cityname=document.getElementById("temp1").value
+    axios.get(`https://api.weatherapi.com/v1/current.json?key=fabe9a8d17da4a6ea5c52709251205&q=${cityname}&aqi=yes`)
+   .then (function (respond){
+     console.log(respond);
+     console.log(respond.data);
+     console.log(respond.data.current);
+       console.log(respond.data.current.temp_c);
+       document.getElementById("res1").innerHTML = (respond.data.current.temp_c);
+   })
+   .catch(function(error){
+     console.log(error) })
+
+    }
+
+    </script>
+</body>
+</html>
